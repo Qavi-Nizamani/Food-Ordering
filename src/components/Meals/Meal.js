@@ -6,6 +6,7 @@ import classes from "./Meal.module.css";
 const Meal = (props) => {
   const cartCtx = useContext(CartContext);
   const [quantity, setQuantity] = useState(1);
+  const isAddedInCart = cartCtx.products.some(product=>props.id === product.id);
 
   return (
     <div className={classes.meal}>
@@ -26,12 +27,16 @@ const Meal = (props) => {
         </div>
         <Button
           className={classes.meal__action_button}
+          disabled={isAddedInCart}
           onClick={() =>
             cartCtx.onProductAdd({
-              id: props.id,
-              title: props.title,
-              price: props.price,
-              count: quantity,
+              type: "ADD_PRODUCT",
+              product: {
+                id: props.id,
+                title: props.title,
+                price: props.price,
+                count: parseInt(quantity),
+              },
             })
           }
         >

@@ -12,3 +12,7 @@
   transform: scale(0.9);
   cursor: active;
 }
+.button:disabled{
+  background: gray;
+    cursor: default;
+}

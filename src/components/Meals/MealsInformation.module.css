@@ -7,8 +7,9 @@
   position: absolute;
   left: 0;
   right: 0;
-  top: -190px;
+  top: -225px;
 }
-.mealsInfo__para {
-  padding: 1rem 0;
+.mealsInfo__title {
+  padding:  0;
+  margin: 0;
 }

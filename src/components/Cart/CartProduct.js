@@ -4,7 +4,7 @@ import Button from "../UI/Button";
 import classes from "./CartProduct.module.css";
 const CartProduct = ({ id, title, price, count }) => {
   const cartCtx = useContext(CartContext);
-  const product = { id, title, price, count };
+  // const product = { id, title, price, count };
   return (
     <div className={classes.cartProduct}>
       <div className={classes.cartProduct__detail}>
@@ -21,13 +21,13 @@ const CartProduct = ({ id, title, price, count }) => {
       <div className={classes.cartProduct__action}>
         <Button
           className={classes.cartProduct__action_button}
-            onClick={() => cartCtx.onProductRemove(product)}
+          onClick={() => cartCtx.onDecrease({ type: "DECREASE", id })}
         >
           -
         </Button>
         <Button
           className={classes.cartProduct__action_button}
-          onClick={() => cartCtx.onProductAdd(product)}
+          onClick={() => cartCtx.onIncrease({ type: "INCREASE", id })}
         >
           +
         </Button>
