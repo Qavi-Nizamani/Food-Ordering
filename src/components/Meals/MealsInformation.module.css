@@ -1,0 +1,14 @@
+.mealsInfo {
+  width: 70%;
+  margin: auto;
+  text-align: center;
+  background-color: #3f3f3f;
+  color: white;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -190px;
+}
+.mealsInfo__para {
+  padding: 1rem 0;
+}

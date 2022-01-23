@@ -1,0 +1,14 @@
+.button {
+  border: none;
+  border-radius: 2rem;
+  background: brown;
+  padding: 8px;
+  cursor: pointer;
+}
+.button:hover {
+  opacity: 0.9;
+}
+.button:active {
+  transform: scale(0.9);
+  cursor: active;
+}

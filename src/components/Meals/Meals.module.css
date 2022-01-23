@@ -1,0 +1,8 @@
+.meals {
+  position: relative;
+}
+.meals__list{
+    background: white;
+    padding: 1rem 2rem;
+    margin: 1rem auto;
+}

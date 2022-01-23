@@ -1,0 +1,29 @@
+.header{
+    background-color: brown;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+.header__nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.headerBottom{
+    overflow: hidden;
+    position: relative;
+    /* display: flex; */
+    height: 470px;
+}
+.headerBottom img{
+    position: absolute;
+    transform: rotate( 
+-7deg
+ );
+    z-index: -1;
+    top: -400px;
+    left: -96px;
+    width: 108%;
+    height: 800px;
+}

@@ -1,0 +1,50 @@
+.meal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #00000026;
+    margin: 8px 0;
+}
+.meal__detail {
+    display: flex;
+    flex-direction: column;
+}
+.meal__detail_title {
+    font-weight: bold;
+}
+.meal__detail_desc {
+    font-family: monospace;
+    font-style: italic;
+    font-size: 14px;
+    margin: 2px 0;
+}
+.meal__detail_price {
+    font-family: fantasy;
+    color: brown;
+}
+
+.meal__action {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-end;
+}
+.meal__action_quantity label{
+    font-weight: bold;
+}
+.meal__action_quantity label::after{
+    content: ': ';
+    font-weight: bold;
+}
+.meal__action_quantity input{
+    width: 30px;
+    border: 1px solid #00000029;
+}
+
+.meal__action_button {
+    margin-top: 8px;
+    width: 100px;
+    color: white;
+}
