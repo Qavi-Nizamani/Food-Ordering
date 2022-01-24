@@ -24,26 +24,3 @@
     border-radius: 4px;
 }
 
-.cartProduct__action {
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  gap: 8px;
-}
-
-.cartProduct__action_button {
-  /* margin-top: 8px; */
-  padding:4px;
-  font-size: 20px;
-  width: 40px;
-  color: brown;
-  font-weight: bolder;
-  border-radius: 0.5rem;
-  /* font-weight: bold; */
-  background-color: white;
-  border: 1px solid brown;
-}
-.cartProduct__action_button:hover {
-  color: brown;
-  background-color: rgb(240, 240, 240);
-}

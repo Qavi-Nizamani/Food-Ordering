@@ -1,30 +1,29 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import CartIcon from "../Cart/CartIcon";
 import classes from "./HeaderCartButton.module.css";
 import CartContext from "../../store/cart-context";
-import CartProducts from "../Cart/CartProducts";
-const HeaderCartButton = () => {
+const HeaderCartButton = (props) => {
+  const buttonRef = useRef();
   const cartCtx = useContext(CartContext);
-  const [areShowingProducts, setAreShowingProducts] = useState(false);
 
-  const showProducts = () => {
-    setAreShowingProducts(true);
-  };
-  const hideProducts = () => {
-    setAreShowingProducts(false);
-  };
+  useEffect(() => {
+    buttonRef.current.classList.add(classes.anim);
+    const i = setTimeout(() => {
+      buttonRef.current.classList.remove(classes.anim);
+    }, 400);
+    return () => {
+      clearTimeout(i);
+    };
+  }, [cartCtx.count]);
   return (
     <>
-      <button className={classes.button} onClick={showProducts}>
+      <button className={classes.button} onClick={props.onOpen} ref={buttonRef}>
         <span>
           <CartIcon />
         </span>
         <span>Your Cart</span>
         <span>{cartCtx.count}</span>
       </button>
-      {areShowingProducts && (
-        <CartProducts products={cartCtx.products} onClick={hideProducts} />
-      )}
     </>
   );
 };

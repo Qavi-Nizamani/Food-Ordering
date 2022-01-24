@@ -1,8 +1,14 @@
 .meals {
   position: relative;
+  animation: slide-down 500ms linear;
 }
-.meals__list{
-    background: white;
-    padding: 1rem 2rem;
-    margin: 1rem auto;
+@keyframes slide-down {
+  from {
+    opacity: 0;
+    transform: translateX(10rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }

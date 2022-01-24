@@ -1,10 +1,7 @@
-import React, { useContext } from "react";
-import CartContext from "../../store/cart-context";
-import Button from "../UI/Button";
+import React from "react";
 import classes from "./CartProduct.module.css";
+import CartProductForm from "./CartProductForm";
 const CartProduct = ({ id, title, price, count }) => {
-  const cartCtx = useContext(CartContext);
-  // const product = { id, title, price, count };
   return (
     <div className={classes.cartProduct}>
       <div className={classes.cartProduct__detail}>
@@ -18,20 +15,7 @@ const CartProduct = ({ id, title, price, count }) => {
           </span>
         </div>
       </div>
-      <div className={classes.cartProduct__action}>
-        <Button
-          className={classes.cartProduct__action_button}
-          onClick={() => cartCtx.onDecrease({ type: "DECREASE", id })}
-        >
-          -
-        </Button>
-        <Button
-          className={classes.cartProduct__action_button}
-          onClick={() => cartCtx.onIncrease({ type: "INCREASE", id })}
-        >
-          +
-        </Button>
-      </div>
+      <CartProductForm id={id} count={count}/>
     </div>
   );
 };

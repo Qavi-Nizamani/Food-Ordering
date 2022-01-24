@@ -10,22 +10,28 @@
   color: white;
   background: black;
   cursor: pointer;
-  /* transition: all 0.5s; */
-  animation:both ;
+  transition: all 1s;
 }
-@keyframes zoom {
-  0% {
-  }
-  100% {
-    transform: scale(1.1);
-  }
-}
+
 .button span:nth-of-type(3) {
   background-color: brown;
   /* color: black; */
   padding: 6px 10px;
   border-radius: 50%;
 }
-.button:active{
-    transform: scale(0.9);
+.button:active {
+  transform: scale(0.9);
+}
+@keyframes zoom {
+  from{
+    /* transform: scale(1); */
+  }
+  to {
+    transform: scale(1.1);
+  }
+}
+.anim {
+  animation-name: zoom;
+  animation-duration: 0.3s;
+  animation-fill-mode:forwards;
 }

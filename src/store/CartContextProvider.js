@@ -34,7 +34,7 @@ const cartReducer = (state, action) => {
         return { count: state.count, products: state.products };
       }
       return {
-        count: ++state.count,
+        count: action.product.count + state.count,
         products: [...state.products, action.product],
       };
 

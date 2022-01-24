@@ -1,5 +1,5 @@
 .mealsInfo {
-  width: 70%;
+  width: 80%;
   margin: auto;
   text-align: center;
   background-color: #3f3f3f;
@@ -7,7 +7,9 @@
   position: absolute;
   left: 0;
   right: 0;
-  top: -225px;
+  bottom: 103%;
+  min-width: 280px;
+  font-size: 1rem;
 }
 .mealsInfo__title {
   padding:  0;
