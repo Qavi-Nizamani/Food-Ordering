@@ -1,0 +1,26 @@
+.cartForm__totalAmount {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+.cartForm__totalAmount h3 {
+  margin: 0;
+}
+.cartForm__totalAmount span {
+  font-size: 1.1rem;
+}
+.cartForm__action {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+.cartForm__action button {
+  padding: 0.5rem 2rem;
+}
+
+.cartForm__action button:nth-of-type(1) {
+  color: brown;
+  background-color: white;
+  border: 1px solid brown;
+}

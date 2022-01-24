@@ -1,21 +1,25 @@
 import React from "react";
 import classes from "./CartProduct.module.css";
 import CartProductForm from "./CartProductForm";
-const CartProduct = ({ id, title, price, count }) => {
+const CartProduct = (props) => {
   return (
     <div className={classes.cartProduct}>
       <div className={classes.cartProduct__detail}>
-        <span className={classes.cartProduct__detail_title}>{title}</span>
+        <span className={classes.cartProduct__detail_title}>{props.title}</span>
         <div className={classes.cartProduct__detail_info}>
           <span className={classes.cartProduct__detail__info_price}>
-            ${price}
+            ${props.price}
           </span>
           <span className={classes.cartProduct__detail__info_quantity}>
-            x{count}
+            x{props.count}
           </span>
         </div>
       </div>
-      <CartProductForm id={id} count={count}/>
+      <CartProductForm
+        onAdd={props.onAdd}
+        onRemove={props.onRemove}
+        count={props.count}
+      />
     </div>
   );
 };

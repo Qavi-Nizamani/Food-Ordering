@@ -7,10 +7,12 @@ const HeaderCartButton = (props) => {
   const cartCtx = useContext(CartContext);
 
   useEffect(() => {
-    buttonRef.current.classList.add(classes.anim);
+    if (cartCtx.count > 0) {
+      buttonRef.current.classList.add(classes.anim);
+    }
     const i = setTimeout(() => {
       buttonRef.current.classList.remove(classes.anim);
-    }, 400);
+    }, 300);
     return () => {
       clearTimeout(i);
     };
