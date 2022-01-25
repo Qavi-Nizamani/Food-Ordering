@@ -6,6 +6,7 @@ import CartForm from "./CartForm";
 import classes from "./Cart.module.css";
 
 const Cart = (props) => {
+  // console.log('rendered');
   const cartCtx = useContext(CartContext);
 
   const onAdd = (id) => {
@@ -14,6 +15,9 @@ const Cart = (props) => {
   const onRemove = (id) => {
     cartCtx.onDecrease(id);
   };
+  const totalAmount = cartCtx.products.reduce((amount, product) => {
+    return amount + product.price * product.count;
+  }, 0);
   return (
     <Modal onClose={props.onClose}>
       <ul className={classes["cart-items"]}>
@@ -32,9 +36,9 @@ const Cart = (props) => {
           );
         })}
       </ul>
-      <CartForm onClose={props.onClose} />
+      <CartForm onClose={props.onClose} totalAmount={totalAmount} />
     </Modal>
   );
 };
 
-export default Cart;
+export default React.memo(Cart);

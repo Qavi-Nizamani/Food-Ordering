@@ -1,9 +1,10 @@
 import React from "react";
 import classes from "./Header.module.css";
 import HeaderCartButton from "./HeaderCartButton";
-import mealImg from "../../assets/meals.jpg";
 import Wrapper from "../UI/Wrapper";
+import Hero from "./Hero";
 const Header = (props) => {
+  console.log('rendering');
   return (
     <>
       <header className={classes.header}>
@@ -12,11 +13,9 @@ const Header = (props) => {
           <HeaderCartButton onOpen={props.onOpen} />
         </Wrapper>
       </header>
-      <div className={classes.headerBottom}>
-        <img src={mealImg} alt="Delicious food on table" />
-      </div>
+      <Hero />
     </>
   );
 };
 
-export default Header;
+export default React.memo(Header);
