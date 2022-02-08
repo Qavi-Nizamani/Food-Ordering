@@ -11,7 +11,7 @@ const CartForm = (props) => {
       </div>
       <div className={classes.cartForm__action}>
         <Button onClick={props.onClose}>Cancel</Button>
-        <Button onClick={props.onClose}>Order</Button>
+        <Button onClick={props.onOrder}>Order</Button>
       </div>
     </div>
   );

@@ -4,7 +4,6 @@ import HeaderCartButton from "./HeaderCartButton";
 import Wrapper from "../UI/Wrapper";
 import Hero from "./Hero";
 const Header = (props) => {
-  console.log('rendering');
   return (
     <>
       <header className={classes.header}>

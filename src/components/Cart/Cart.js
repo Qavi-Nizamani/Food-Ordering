@@ -1,12 +1,13 @@
-import React, { useContext } from "react";
+import React, { useState, useContext, useCallback } from "react";
 import CartContext from "../../store/cart-context";
 import Modal from "../UI/Modal";
 import CartProduct from "./CartProduct";
 import CartForm from "./CartForm";
 import classes from "./Cart.module.css";
+import Checkout from "./Checkout";
 
 const Cart = (props) => {
-  // console.log('rendered');
+  const [isOrdered, setIsOrdered] = useState(false);
   const cartCtx = useContext(CartContext);
 
   const onAdd = (id) => {
@@ -15,6 +16,11 @@ const Cart = (props) => {
   const onRemove = (id) => {
     cartCtx.onDecrease(id);
   };
+
+  const orderHandler = useCallback(() => {
+    setIsOrdered(true);
+  }, []);
+
   const totalAmount = cartCtx.products.reduce((amount, product) => {
     return amount + product.price * product.count;
   }, 0);
@@ -36,7 +42,14 @@ const Cart = (props) => {
           );
         })}
       </ul>
-      <CartForm onClose={props.onClose} totalAmount={totalAmount} />
+      {isOrdered && <Checkout onClose={props.onClose} />}
+      {!isOrdered && (
+        <CartForm
+          onClose={props.onClose}
+          onOrder={orderHandler}
+          totalAmount={totalAmount}
+        />
+      )}
     </Modal>
   );
 };

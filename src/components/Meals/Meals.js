@@ -4,7 +4,6 @@ import MealsInformation from "./MealsInformation";
 import classes from "./Meals.module.css";
 import AvailableMeals from "./AvailableMeals";
 const Meals = () => {
-  console.log('meals');
   return (
     <Wrapper className={classes.meals}>
       <MealsInformation />
