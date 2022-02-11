@@ -1,6 +1,10 @@
 import React, { useReducer } from "react";
 import CartContext from "./cart-context";
 
+const initialCart = {
+  count: 0,
+  products: [],
+};
 const cartReducer = (state, action) => {
   let updatedProducts = [...state.products];
   let existingProductIndex;
@@ -46,6 +50,9 @@ const cartReducer = (state, action) => {
         products: updatedProducts,
       };
 
+    case "CLEAR":
+      return initialCart;
+
     default:
       return {
         count: state.count,
@@ -55,10 +62,7 @@ const cartReducer = (state, action) => {
 };
 
 const CartContextProvider = (props) => {
-  const [cartState, cartAction] = useReducer(cartReducer, {
-    count: 0,
-    products: [],
-  });
+  const [cartState, cartAction] = useReducer(cartReducer, initialCart);
 
   const addProductHandler = (product) => {
     cartAction({ type: "ADD_PRODUCT", product: product });
@@ -69,12 +73,15 @@ const CartContextProvider = (props) => {
   const increaseHandler = (id) => {
     cartAction({ type: "INCREASE", id });
   };
-
+  const clear = () => {
+    cartAction({ type: "CLEAR" });
+  };
   const cartContext = {
     count: cartState.count,
     onProductAdd: addProductHandler,
     onIncrease: increaseHandler,
     onDecrease: decreaseHandler,
+    clear,
     products: cartState.products,
   };
   return (

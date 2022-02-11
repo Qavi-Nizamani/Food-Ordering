@@ -5,6 +5,7 @@ const CartContext = React.createContext({
   onProductAdd: () => {},
   onDecrease: () => {},
   onIncrease: () => {},
+  clear: () => {},
   products: [],
 });
 

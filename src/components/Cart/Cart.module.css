@@ -6,3 +6,17 @@
   overflow: auto;
 }
 
+.cartAction {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+.cartAction button {
+  padding: 0.5rem 2rem;
+}
+
+.cartAction button:nth-of-type(1) {
+  color: brown;
+  background-color: white;
+  border: 1px solid brown;
+}

@@ -2,9 +2,10 @@ import React, { useState, useEffect } from "react";
 import classes from "./AvailableMeals.module.css";
 import Card from "../UI/Card";
 import Meal from "./Meal";
+
 const AvailableMeals = () => {
   const [data, setData] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const [hasHttpError, setHasHttpError] = useState(null);
   useEffect(() => {
     const fetchData = async () => {
@@ -25,10 +26,18 @@ const AvailableMeals = () => {
   }, []);
 
   if (isLoading) {
-    return  <Card className={classes.availableMeals}><p className={classes.loading}>Loading...</p></Card>;
+    return (
+      <Card className={classes.availableMeals}>
+        <p className={classes.loading}>Loading...</p>
+      </Card>
+    );
   }
   if (hasHttpError) {
-    return <Card className={classes.availableMeals}><p className={classes.httpError}>{hasHttpError}</p></Card>;
+    return (
+      <Card className={classes.availableMeals}>
+        <p className={classes.httpError}>{hasHttpError}</p>
+      </Card>
+    );
   }
   const meals = data.map((meal) => {
     return (
